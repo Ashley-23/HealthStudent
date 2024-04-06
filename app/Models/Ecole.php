@@ -4,8 +4,10 @@ namespace App\Models;
 
 //importation des modeles etudiant, psy, admin
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Admin;
+use App\Models\Etudiant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ecole extends Model
 {
@@ -19,11 +21,12 @@ class Ecole extends Model
 
     // Une école a plusieurs administrateur
 
-    // public function Administrateurs()
-    // {
-    //     // importer la classe administrateur
-    //     return $this->hashMany(Admin::class);
-    // }
+    public function Admin()
+    {
+        // importer la classe administrateur
+        return $this->hashMany(Admin::class);
+    }
+    
     // Une école a plusieurs psychologues
 
     // public function Psychologues()
@@ -34,9 +37,9 @@ class Ecole extends Model
 
     // Une école a plusieurs élèves
 
-    // public function Etudiants()
-    // {
-    //     // importer la classe etudiant
-    //     return $this->hashMany(Etudiant::class);
-    // }
+    public function Etudiants()
+    {
+        // importer la classe etudiant
+        return $this->hashMany(Etudiant::class);
+    }
 }

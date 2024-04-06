@@ -2,9 +2,10 @@
 
 use App\Models\Ecole;
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Etudiant;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -25,7 +26,7 @@ return new class extends Migration
 
             //IMPORTATION DES TABLES PSY ET ETUDIANT
             // $table->foreignIdFor(Pychlogue::class)->constrained();
-            // $table->foreignIdFor(tudiant::class)->constrained();
+            $table->foreignIdFor(Etudiant::class)->constrained();
 
         });
     }

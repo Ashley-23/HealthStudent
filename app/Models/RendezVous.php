@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Etudiant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class RendezVous extends Model
 {
@@ -28,11 +29,11 @@ class RendezVous extends Model
     //     return $this->belongsTo(Psychologue::Class);
     // }
 
-    // // un rendez-vous appartient à un etudiant 
-    // public function Etudiant()
-    // {
-    //     //importation de la classe etudiant
-    //     return $this->belongsTo(Etudiant::Class);
-    // }
+    // un rendez-vous appartient à un etudiant 
+    public function Etudiant()
+    {
+        //importation de la classe etudiant
+        return $this->belongsTo(Etudiant::Class);
+    }
 
 }
