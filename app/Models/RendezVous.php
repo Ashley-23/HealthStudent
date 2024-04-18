@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Etudiant;
+use App\Models\Psychologue;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -22,12 +23,12 @@ class RendezVous extends Model
     ];
 
 
-    // // un rendez-vous appartient à  un psychologue 
-    // public function Psychologue()
-    // {
-    //     //importation de la classe psychologue
-    //     return $this->belongsTo(Psychologue::Class);
-    // }
+    // un rendez-vous appartient à  un psychologue 
+    public function Psychologue()
+    {
+        //importation de la classe psychologue
+        return $this->belongsTo(Psychologue::Class);
+    }
 
     // un rendez-vous appartient à un etudiant 
     public function Etudiant()

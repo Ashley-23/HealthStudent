@@ -3,6 +3,7 @@
 use App\Models\Ecole;
 
 use App\Models\Etudiant;
+use App\Models\Psychologue;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -25,7 +26,7 @@ return new class extends Migration
             $table->timestamps();
 
             //IMPORTATION DES TABLES PSY ET ETUDIANT
-            // $table->foreignIdFor(Pychlogue::class)->constrained();
+            $table->foreignIdFor(Psychologue::class)->constrained();
             $table->foreignIdFor(Etudiant::class)->constrained();
 
         });
