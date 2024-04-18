@@ -34,7 +34,8 @@
 		<div class="container-login100" style="background-image: url('{{asset('Login_v4/images/img3.jpeg')}}');">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<!-- <form class="login100-form validate-form"> -->
-				<form action="{{asset('pages/tables/data.html')}}" method="post">
+				<!-- <form action="{{asset('pages/tables/data.html')}}" method="post"> -->
+				<form action="{{route('admin_dashboard')}}" method="get">
 					<span class="login100-form-title p-b-49">
 						Connexion
 					</span>
