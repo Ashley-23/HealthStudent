@@ -23,7 +23,14 @@ return new class extends Migration
             $table->int("heure_fin");
             $table->int("minute_fin");
             $table->String("comentaire");
+            $table->char('active', 1)->default('a');
             $table->timestamps();
+                /*
+                    t -> actif 
+                    f -> refuser
+                    a -> en attente 
+
+                */
 
             //IMPORTATION DES TABLES PSY ET ETUDIANT
             $table->foreignIdFor(Psychologue::class)->constrained();
