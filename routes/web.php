@@ -1,9 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AllController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/test', function () {
+    return view('test');
 });
 
 // *******************************ADMIIN******************************************
@@ -37,6 +42,21 @@ Route::get('/admin/rdv', function () {
 })->name('admin_rdv');
 
 
+
+
+
+
+//--------------------------------------------------------------------------------------
+
+
+
+// Appel du controller 
+Route::resource('AllController', AllController::class);
+// pour afficher la page d'accueil 
+// Route::get('/accueil', 'AllController@connexion')->name('connexionCtl');
+Route::post('/accueil', 'AllController@connexion')->name('connexionCtl');
+// Pour gerer les accueils 
+// Route::get('/accueils', 'loginController@connexion')->name('loginController');
 
 
 
