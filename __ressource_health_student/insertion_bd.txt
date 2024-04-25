@@ -1,0 +1,191 @@
+
+
+
+----------------- DONNES A INSERER -------------------
+
+
+
+
+-- Fake données pour la table 'ecoles'
+
+INSERT INTO `ecoles` (`nom`, `created_at`, `updated_at`) VALUES
+('ISTY', NOW(), NOW()),
+('Ecole primaire Sainte-Marie', NOW(), NOW()),
+('Collège Jean Moulin', NOW(), NOW()),
+('Lycée Victor Hugo', NOW(), NOW()),
+('Ecole élémentaire Paul Bert', NOW(), NOW()),
+('Collège Marie Curie', NOW(), NOW()),
+('Lycée Jules Ferry', NOW(), NOW()),
+('Ecole maternelle Saint-Exupéry', NOW(), NOW()),
+('Collège Louise Michel', NOW(), NOW()),
+('Lycée Albert Camus', NOW(), NOW()),
+('Ecole privée Notre-Dame', NOW(), NOW()),
+('Collège René Descartes', NOW(), NOW()),
+('Lycée Henri IV', NOW(), NOW()),
+('Ecole Marcel Pagnol', NOW(), NOW()),
+('Collège Simone de Beauvoir', NOW(), NOW()),
+('Lycée Jacques Prévert', NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Fake données pour la table 'etudiants'
+
+INSERT INTO `etudiants` (`nom`, `prenom`, `dateNaiss`, `email`, `tel`, `mot_de_passe`, `num_etu`, `annee_entree`, `ecole_id`, `created_at`, `updated_at`) VALUES
+('YARBANGA', 'Blaise', '1995-09-10', 'blaise.yarbanga@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('KAMDEM', 'Serena', '1996-08-20', 'serena.kamdem@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('ENAYATI', 'Yas', '1997-07-30', 'yas.enayati@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('AFOH', 'Denis', '1998-06-25', 'denis.afoh@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('EL OTMANI', 'Hiba', '1999-05-15', 'hiba.elotmani@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('SATCHIVI', 'Ashley', '2000-04-05', 'ashley.satchivi@example.com', '0123456789', 'passpass', 'E56789', '2021-09-01', 1, NOW(), NOW()),
+('Dupont', 'Jean', '1998-03-15', 'jean.dupont@example.com', '0123456789', 'mdp123', 'E12345', '2020-09-01', 1, NOW(), NOW()),
+('Martin', 'Sophie', '1997-06-25', 'sophie.martin@example.com', '0987654321', 'pass123', 'E23456', '2019-09-01', 2, NOW(), NOW()),
+('Dubois', 'Pierre', '1996-11-10', 'pierre.dubois@example.com', '0321654987', '123pass', 'E34567', '2021-09-01', 3, NOW(), NOW()),
+('Leroy', 'Julie', '1995-04-03', 'julie.leroy@example.com', '0147852369', 'pass456', 'E45678', '2020-09-01', 1, NOW(), NOW()),
+('Moreau', 'Luc', '2000-09-20', 'luc.moreau@example.com', '0987456321', 'abc123', 'E56789', '2019-09-01', 2, NOW(), NOW()),
+('Lefebvre', 'Marie', '2001-12-05', 'marie.lefebvre@example.com', '0546312789', '456abc', 'E67890', '2021-09-01', 3, NOW(), NOW()),
+('Roux', 'Thomas', '1999-08-18', 'thomas.roux@example.com', '0963178542', 'passabc', 'E78901', '2020-09-01', 1, NOW(), NOW()),
+('Blanc', 'Emma', '2002-05-30', 'emma.blanc@example.com', '0123456789', '789pass', 'E89012', '2019-09-01', 2, NOW(), NOW()),
+('Adam', 'Antoine', '2003-02-14', 'antoine.adam@example.com', '0987654321', 'pass789', 'E90123', '2021-09-01', 3, NOW(), NOW()),
+('Garcia', 'Camille', '1997-07-27', 'camille.garcia@example.com', '0321654987', 'passpass', 'E01234', '2020-09-01', 1, NOW(), NOW()),
+('Fournier', 'Paul', '2000-10-10', 'paul.fournier@example.com', '0147852369', 'passpass123', 'E12345', '2019-09-01', 2, NOW(), NOW()),
+('Bonnet', 'Mathilde', '1998-03-03', 'mathilde.bonnet@example.com', '0987456321', '123abc', 'E23456', '2021-09-01', 3, NOW(), NOW()),
+('Caron', 'Nicolas', '1999-11-17', 'nicolas.caron@example.com', '0546312789', 'abc456', 'E34567', '2020-09-01', 1, NOW(), NOW()),
+('Girard', 'Laura', '2002-01-01', 'laura.girard@example.com', '0963178542', 'passpassabc', 'E45678', '2019-09-01', 2, NOW(), NOW()),
+('Rousseau', 'Alexandre', '1996-04-20', 'alexandre.rousseau@example.com', '0123456789', 'abc789', 'E56789', '2021-09-01', 3, NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Fake données pour la table 'psychologues'
+
+INSERT INTO `psychologues` (`nom`, `prenom`, `dateNaiss`, `email`, `tel`, `mot_de_passe`, `num_psy`, `annee_entree`, `ecole_id`, `created_at`, `updated_at`) VALUES
+('Smith', 'John', '1985-03-15', 'john.smith@example.com', '0123456789', 'motdepasse1', 'P12345', '2010-09-01', 1, NOW(), NOW()),
+('Johnson', 'Emily', '1978-06-25', 'emily.johnson@example.com', '0987654321', 'motdepasse2', 'P23456', '2009-09-01', 2, NOW(), NOW()),
+('Williams', 'David', '1986-11-10', 'david.williams@example.com', '0321654987', 'motdepasse3', 'P34567', '2015-09-01', 3, NOW(), NOW()),
+('Brown', 'Rachel', '1975-04-03', 'rachel.brown@example.com', '0147852369', 'motdepasse4', 'P45678', '2018-09-01', 4, NOW(), NOW()),
+('Jones', 'Michael', '1980-09-20', 'michael.jones@example.com', '0987456321', 'motdepasse5', 'P56789', '2017-09-01', 5, NOW(), NOW()),
+('Miller', 'Laura', '1972-12-05', 'laura.miller@example.com', '0546312789', 'motdepasse6', 'P67890', '2019-09-01', 6, NOW(), NOW()),
+('Davis', 'Thomas', '1988-08-18', 'thomas.davis@example.com', '0963178542', 'motdepasse7', 'P78901', '2016-09-01', 7, NOW(), NOW()),
+('Wilson', 'Jessica', '1992-05-30', 'jessica.wilson@example.com', '0123456789', 'motdepasse8', 'P89012', '2020-09-01', 8, NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Fake données pour la table 'admins'
+
+INSERT INTO `admins` (`nom`, `prenom`, `dateNaiss`, `email`, `tel`, `num_admin`, `annee_entree`, `ecole_id`, `created_at`, `updated_at`) VALUES
+('Wilson', 'Alex', '1985-03-15', 'alex.wilson@example.com', '0123456789', 'A12345', '2010-09-01', 1, NOW(), NOW()),
+('Miller', 'Olivia', '1978-06-25', 'olivia.miller@example.com', '0987654321', 'A23456', '2009-09-01', 2, NOW(), NOW()),
+('Davis', 'Ethan', '1986-11-10', 'ethan.davis@example.com', '0321654987', 'A34567', '2015-09-01', 3, NOW(), NOW()),
+('Thomas', 'Ava', '1975-04-03', 'ava.thomas@example.com', '0147852369', 'A45678', '2018-09-01', 4, NOW(), NOW()),
+('Hernandez', 'William', '1980-09-20', 'william.hernandez@example.com', '0987456321', 'A56789', '2017-09-01', 5, NOW(), NOW()),
+('Moore', 'Sophia', '1972-12-05', 'sophia.moore@example.com', '0546312789', 'A67890', '2019-09-01', 6, NOW(), NOW()),
+('Martin', 'James', '1988-08-18', 'james.martin@example.com', '0963178542', 'A78901', '2016-09-01', 7, NOW(), NOW()),
+('Jackson', 'Charlotte', '1992-05-30', 'charlotte.jackson@example.com', '0123456789', 'A89012', '2020-09-01', 8, NOW(), NOW()),
+('Taylor', 'Daniel', '1983-02-10', 'daniel.taylor@example.com', '0987654321', 'A90123', '2013-09-01', 9, NOW(), NOW()),
+('White', 'Grace', '1976-07-17', 'grace.white@example.com', '0321654987', 'A01234', '2012-09-01', 10, NOW(), NOW()),
+('Thomas', 'Jacob', '1989-10-29', 'jacob.thomas@example.com', '0147852369', 'A12345', '2014-09-01', 11, NOW(), NOW()),
+('Hernandez', 'Emma', '1984-08-12', 'emma.hernandez@example.com', '0987456321', 'A23456', '2011-09-01', 12, NOW(), NOW()),
+('Moore', 'Michael', '1990-03-24', 'michael.moore@example.com', '0546312789', 'A34567', '2018-09-01', 13, NOW(), NOW()),
+('Martin', 'Lily', '1981-06-14', 'lily.martin@example.com', '0963178542', 'A45678', '2017-09-01', 14, NOW(), NOW()),
+('Brown', 'Noah', '1979-11-07', 'noah.brown@example.com', '0123456789', 'A56789', '2015-09-01', 15, NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+-- Fake données pour la table 'rendez_vouses'
+
+INSERT INTO `rendez_vouses` (`date`, `heure_debut`, `minute_debut`, `heure_fin`, `minute_fin`, `comentaire`, `active`, `psychologue_id`, `etudiant_id`, `created_at`, `updated_at`) VALUES
+('2024-05-01', 10, 0, 11, 0, 'Rendez-vous de consultation', 't', 1, 1, NOW(), NOW()),
+('2024-05-02', 14, 30, 15, 30, 'Suivi psychologique', 't', 2, 2, NOW(), NOW()),
+('2024-05-03', 9, 0, 10, 0, 'Consultation pour anxiété', 't', 3, 3, NOW(), NOW()),
+('2024-05-04', 16, 0, 17, 0, 'Entretien individuel', 't', 4, 4, NOW(), NOW()),
+('2024-05-05', 11, 30, 12, 30, 'Réorientation professionnelle', 't', 5, 5, NOW(), NOW()),
+('2024-05-06', 13, 0, 14, 0, 'Gestion du stress', 't', 6, 6, NOW(), NOW()),
+('2024-05-07', 15, 30, 16, 30, 'Soutien psychologique', 't', 7, 7, NOW(), NOW()),
+('2024-05-08', 10, 0, 11, 0, 'Rendez-vous de consultation', 't', 8, 8, NOW(), NOW()),
+('2024-05-09', 14, 30, 15, 30, 'Suivi psychologique', 't', 1, 9, NOW(), NOW()),
+('2024-05-10', 9, 0, 10, 0, 'Consultation pour anxiété', 't', 2, 10, NOW(), NOW()),
+('2024-05-11', 16, 0, 17, 0, 'Entretien individuel', 't', 3, 11, NOW(), NOW()),
+('2024-05-12', 11, 30, 12, 30, 'Réorientation professionnelle', 't', 4, 12, NOW(), NOW()),
+('2024-05-13', 13, 0, 14, 0, 'Gestion du stress', 't', 5, 13, NOW(), NOW()),
+('2024-05-14', 15, 30, 16, 30, 'Soutien psychologique', 't', 6, 14, NOW(), NOW()),
+('2024-05-15', 10, 0, 11, 0, 'Rendez-vous de consultation', 't', 7, 15, NOW(), NOW()),
+('2024-05-16', 14, 30, 15, 30, 'Suivi psychologique', 't', 8, 1, NOW(), NOW()),
+('2024-05-17', 9, 0, 10, 0, 'Consultation pour anxiété', 't', 1, 2, NOW(), NOW()),
+('2024-05-18', 16, 0, 17, 0, 'Entretien individuel', 't', 2, 3, NOW(), NOW()),
+('2024-05-19', 11, 30, 12, 30, 'Réorientation professionnelle', 't', 3, 4, NOW(), NOW()),
+('2024-05-20', 13, 0, 14, 0, 'Gestion du stress', 't', 4, 5, NOW(), NOW()),
+('2024-05-21', 15, 30, 16, 30, 'Soutien psychologique', 't', 5, 6, NOW(), NOW()),
+('2024-05-22', 10, 0, 11, 0, 'Rendez-vous de consultation', 't', 6, 7, NOW(), NOW()),
+('2024-05-23', 14, 30, 15, 30, 'Suivi psychologique', 't', 7, 8, NOW(), NOW()),
+('2024-05-24', 9, 0, 10, 0, 'Consultation pour anxiété', 't', 8, 9, NOW(), NOW()),
+('2024-05-25', 16, 0, 17, 0, 'Entretien individuel', 't', 1, 10, NOW(), NOW()),
+('2024-05-26', 11, 30, 12, 30, 'Réorientation professionnelle', 't', 2, 11, NOW(), NOW()),
+('2024-05-27', 13, 0, 14, 0, 'Gestion du stress', 't', 3, 12, NOW(), NOW()),
+('2024-05-28', 15, 30, 16, 30, 'Soutien psychologique', 't', 4, 13, NOW(), NOW()),
+('2024-05-29', 10, 0, 11, 0, 'Rendez-vous de consultation', 't', 5, 14, NOW(), NOW()),
+('2024-05-30', 14, 30, 15, 30, 'Suivi psychologique', 't', 6, 15, NOW(), NOW());
+
+
+
+
+
+
+
+
+
+
+
+
+
+

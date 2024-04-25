@@ -18,11 +18,11 @@ return new class extends Migration
         Schema::create('rendez_vouses', function (Blueprint $table) {
             $table->id();
             $table->date('date');
-            $table->int("heure_debut");
-            $table->int("minute_debut");
-            $table->int("heure_fin");
-            $table->int("minute_fin");
-            $table->String("comentaire");
+            $table->integer('heure_debut')->min(0)->max(23);
+            $table->integer('minute_debut')->min(0)->max(59);
+            $table->integer('heure_fin')->min(0)->max(23);
+            $table->integer('minute_fin')->min(0)->max(59);
+            $table->String('comentaire');
             $table->char('active', 1)->default('a');
             $table->timestamps();
                 /*
@@ -32,7 +32,7 @@ return new class extends Migration
 
                 */
 
-            //IMPORTATION DES TABLES PSY ET ETUDIANT
+            // IMPORTATION DES TABLES PSY ET ETUDIANT
             $table->foreignIdFor(Psychologue::class)->constrained();
             $table->foreignIdFor(Etudiant::class)->constrained();
 
