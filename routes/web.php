@@ -8,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/test', function () {
-    return view('test');
+    return view('etudiant.edt');
 });
 
 // *******************************ADMIIN******************************************
@@ -55,7 +55,7 @@ Route::resource('AllController', AllController::class);
 // pour afficher la page d'accueil 
 // Route::get('/accueil', 'AllController@connexion')->name('connexionCtl');
 Route::post('/accueil', 'AllController@connexion')->name('connexionCtl');
-// Pour gerer les accueils 
+// Pour gerer les accueils w
 // Route::get('/accueils', 'loginController@connexion')->name('loginController');
 
 

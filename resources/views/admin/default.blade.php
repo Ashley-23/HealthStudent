@@ -128,26 +128,6 @@
                 </a>
               </li>
               
-            
-              <li class="nav-item">
-                <a href="{{route('admin_edt')}}" class="nav-link">
-                  <i class="nav-icon far fa-calendar-alt"></i>
-                  <p>
-                    Emploi du temps
-                    <!-- <span class="badge badge-info right">2</span> -->
-                  </p>
-                </a>
-              </li>
-              
-            
-              <li class="nav-item">
-                <a href="{{route('admin_rdv')}}" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>
-                        Rendez-vous
-                    </p>
-                    </a>
-              </li>
 
               <li class="nav-item">
                 <a href="{{route('admin_etudiant')}}" class="nav-link">
