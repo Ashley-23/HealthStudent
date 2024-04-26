@@ -153,20 +153,12 @@
                 <a href="{{route('admin_etudiant')}}" class="nav-link">
                     <i class="nav-icon far fa-plus-square"></i>
                     <p>
-                    Etudiants
+                      Mes consultations 
                     </p>
                 </a>
             </li>
               
 
-              <li class="nav-item">
-                <a href="{{route('admin_psy')}}" class="nav-link">
-                    <i class="nav-icon far fa-plus-square"></i>
-                    <p>
-                    Psychologues
-                    </p>
-                </a>
-            </li>
               
 
             </ul>
