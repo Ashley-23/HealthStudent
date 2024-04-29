@@ -46,6 +46,24 @@
 
   <!-- fullCalendar -->
   <link rel="stylesheet" href="{{asset('plugins/fullcalendar/main.css')}}">
+
+
+  <style>
+    .avatar-initials {
+        width: 50px; /* ajustez la taille selon vos préférences */
+        height: 50px; /* ajustez la taille selon vos préférences */
+        background-color: #ccc; /* couleur de fond de l'avatar */
+        border-radius: 50%; /* pour obtenir une forme circulaire */
+        display: inline-block;
+        font-size: 24px; /* taille de la police pour les initiales */
+        line-height: 50px; /* pour centrer verticalement le texte */
+        text-align: center; /* pour centrer horizontalement le texte */
+        color: #fff; /* couleur du texte (blanc ici) */
+        margin-right: 10px; /* ajustez selon vos préférences de mise en page */
+    }
+</style>
+
+
 </head>
 
 
@@ -55,7 +73,7 @@
   
     <div class="wrapper">
 
-      
+      {{-- @dd(Auth::guard('admins')->logout(auth('admins')->user())) --}}
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -64,7 +82,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('admin_dashboard')}}" class="nav-link">Tableau de bord</a>
+            <a href="{{route('admin.dashboard')}}" class="nav-link">Tableau de bord</a>
           </li>
         </ul>
 
@@ -77,9 +95,14 @@
             </a>
           </li>
 
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Deconnexion</a>
-          </li>
+
+        <form action="{{ route('logout') }}" method="post" hidden id="logout-form">
+            @csrf
+          </form>
+
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit()">Deconnexion</a>
+            </li>
         
         </ul>
       </nav>
@@ -104,23 +127,28 @@
         <div class="sidebar">
 
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
+            {{-- <div class="image">
               <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            </div> --}}
+
+
+            <div class="avatar-initials">
+              {{ substr(Auth::user()->nom, 0, 1) }}{{ substr(Auth::user()->prenom, 0, 1) }}
             </div>
+
+
+
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block"> {{ strtoupper(Auth::user()->nom) }} {{ Auth::user()->prenom }} </a>
             </div>
           </div>
         
 
           <!-- Sidebar Menu -->
           <nav class="mt-2">
-            <!-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> -->
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class
-                  with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="{{route('admin_dashboard')}}" class="nav-link">
+                <a href="{{route('admin.dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Tableau de bord 
@@ -128,19 +156,36 @@
                 </a>
               </li>
               
-
               <li class="nav-item">
-                <a href="{{route('admin_etudiant')}}" class="nav-link">
-                    <i class="nav-icon far fa-plus-square"></i>
-                    <p>
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
                     Etudiants
-                    </p>
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
                 </a>
-            </li>
-              
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('admin.etudiants.index')}}" class="nav-link">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                        Liste des etudiants
+                        </p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('admin.etudiants.create')}}" class="nav-link">
+                        <i class="nav-icon far fa-plus-square"></i>
+                        <p>
+                        Ajouter un étudiant
+                        </p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
 
               <li class="nav-item">
-                <a href="{{route('admin_psy')}}" class="nav-link">
+                <a href="{{route('admin.psy')}}" class="nav-link">
                     <i class="nav-icon far fa-plus-square"></i>
                     <p>
                     Psychologues

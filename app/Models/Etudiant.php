@@ -3,12 +3,10 @@
 namespace App\Models;
 
 use App\Models\RendezVous;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Etudiant extends Model
+class Etudiant extends Authenticatable
 {
-    use HasFactory;
     protected $primarykey = "id";
 
     protected $fillable = [
@@ -17,20 +15,29 @@ class Etudiant extends Model
         'dateNaiss',
         'email',
         'tel',
-        'mot_de_passe',
+        'password',
         'num_etu',
         'annee_entree',
+        'ecole_id',
     ];
 
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
 
     //un etusiant appartient a une ecole
-    
-   public function Ecole(){
-    return $this->belongsTo(Ecole::class);
+
+    public function Ecole()
+    {
+        return $this->belongsTo(Ecole::class);
     }
 
     // Un etudiant a plusueurs rendez-vous
-    public function RendezVous(){
+    public function RendezVous()
+    {
         return $this->hasMany(RendezVous::class);
     }
 }

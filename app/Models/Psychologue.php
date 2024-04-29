@@ -4,13 +4,12 @@ namespace App\Models;
 
 use App\Models\Ecole;
 use App\Models\RendezVous;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Psychologue extends Model
+class Psychologue extends Authenticatable
 {
     use HasFactory;
-    protected $primarykey = "id";
 
     protected $fillable = [
         'nom',
@@ -18,18 +17,27 @@ class Psychologue extends Model
         'dateNaiss',
         'email',
         'tel',
-        'mot_de_passe',
+        'password',
         'num_psy',
         'annee_entree',
     ];
-    //un psy appartient a une ecole
-    
-   public function Ecole(){
-    return $this->belongsTo(Ecole::class);
-   }
 
-   public function RendezVous(){
-    return $this->hasMany(RendezVous::class);
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
     }
 
+    //un psy appartient a une ecole
+
+    public function Ecole()
+    {
+        return $this->belongsTo(Ecole::class);
+    }
+
+    public function RendezVous()
+    {
+        return $this->hasMany(RendezVous::class);
+    }
 }

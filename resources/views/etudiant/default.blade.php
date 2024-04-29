@@ -46,6 +46,25 @@
 
   <!-- fullCalendar -->
   <link rel="stylesheet" href="{{asset('plugins/fullcalendar/main.css')}}">
+
+
+  
+  <style>
+    .avatar-initials {
+        width: 50px; /* ajustez la taille selon vos préférences */
+        height: 50px; /* ajustez la taille selon vos préférences */
+        background-color: #ccc; /* couleur de fond de l'avatar */
+        border-radius: 50%; /* pour obtenir une forme circulaire */
+        display: inline-block;
+        font-size: 24px; /* taille de la police pour les initiales */
+        line-height: 50px; /* pour centrer verticalement le texte */
+        text-align: center; /* pour centrer horizontalement le texte */
+        color: #fff; /* couleur du texte (blanc ici) */
+        margin-right: 10px; /* ajustez selon vos préférences de mise en page */
+    }
+</style>
+
+
 </head>
 
 
@@ -54,7 +73,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
   
     <div class="wrapper">
-
       
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -77,9 +95,15 @@
             </a>
           </li>
 
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Deconnexion</a>
-          </li>
+          <form action="{{ route('logout') }}" method="post" hidden id="logout-form">
+            @csrf
+          </form>
+
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit()">Deconnexion</a>
+            </li>
+        
+        </ul>
         
         </ul>
       </nav>
@@ -104,11 +128,14 @@
         <div class="sidebar">
 
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+            <div class="avatar-initials">
+              {{ substr(Auth::user()->nom, 0, 1) }}{{ substr(Auth::user()->prenom, 0, 1) }}
             </div>
+
+
+
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block"> {{ strtoupper(Auth::user()->nom) }} {{ Auth::user()->prenom }} </a>
             </div>
           </div>
         
@@ -130,7 +157,7 @@
               
             
               <li class="nav-item">
-                <a href="{{route('admin_edt')}}" class="nav-link">
+                {{-- <a href="{{route('admin_edt')}}" class="nav-link"> --}}
                   <i class="nav-icon far fa-calendar-alt"></i>
                   <p>
                     Emploi du temps
