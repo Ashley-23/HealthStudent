@@ -3,11 +3,18 @@
 namespace App\Models;
 
 use App\Models\RendezVous;
+use App\Traits\Routing\GenerateUniqueSlugTrait;
+use App\Traits\Routing\ModelsSlugKeyTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Etudiant extends Authenticatable
 {
-    protected $primarykey = "id";
+    use ModelsSlugKeyTrait, GenerateUniqueSlugTrait;
+
+    public function hasSlugBaseKeyProvider(): bool
+    {
+        return false;
+    }
 
     protected $fillable = [
         'nom',
@@ -19,6 +26,7 @@ class Etudiant extends Authenticatable
         'num_etu',
         'annee_entree',
         'ecole_id',
+        'slug'
     ];
 
     protected function casts(): array
