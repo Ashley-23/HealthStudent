@@ -56,8 +56,8 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-23" data-validate="Veuillez remplir ce champ">
-						<span class="label-input100">Numéro</span>
-						<input class="input100" type="text" name="username" value="{{ old('username') }}" placeholder=" Entrez votre numéro " required>
+						<span class="label-input100"> Email </span>
+						<input class="input100" type="text" name="username" value="{{ old('username') }}" placeholder=" Entrez votre email " required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 

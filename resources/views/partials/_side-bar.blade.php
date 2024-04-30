@@ -85,39 +85,80 @@
                     </li>
                 @endif
 
+
+
                 {{-- Étudiants --}}
                 @if (Auth::guard('etudiants')->user())
                     <!-- Left navbar links -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                                    class="fas fa-bars"></i></a>
-                        </li>
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="{{ route('admin_dashboard') }}" class="nav-link">Tableau de bord</a>
-                        </li>
-                    </ul>
+                    
+                        {{-- <li class="nav-item d-none d-sm-inline-block">
+                            <a href="{{ route('admin.dashboard') }}" class="nav-link">Tableau de bord</a>
+                        </li> --}}
 
-                    <!-- Right navbar links -->
-                    <ul class="navbar-nav ml-auto">
 
-                        <li class="nav-item">
-                            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </a>
-                        </li>
 
-                        <form action="{{ route('logout') }}" method="post" hidden id="logout-form">
-                            @csrf
-                        </form>
+                    <li class="nav-item">
+                        <a href="{{ route('etudiant_dashboard') }}" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Tableau de bord
+                            </p>
+                        </a>
+                    </li>
 
-                        <li class="nav-item d-none d-sm-inline-block">
-                            <a href="#" class="nav-link"
-                                onclick="document.getElementById('logout-form').submit()">Deconnexion</a>
-                        </li>
 
-                    </ul>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Rendez-vous
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.etudiants.index') }}" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Prendre un rendez-vous
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Liste des psychologues
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Consulter mes rendez-vous
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                          <i class="nav-icon fas fa-th"></i>
+                          <p>
+                            Paramètres
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                          </p>
+                        </a>
+                    </li>
+
+                        
+
                 @endif
+
+
+
 
                 {{-- Psycho --}}
                 @if (Auth::guard('psychos')->user())
@@ -136,7 +177,6 @@
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Emploi du temps
-                            <!-- <span class="badge badge-info right">2</span> -->
                         </p>
                         </a>
                     </li>

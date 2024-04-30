@@ -30,14 +30,17 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
 
     
 
-    Route::middleware('auth:etudiants')->group(function () {
-        Route::view('etudiant/dashboard', 'etudiant.default')->name('etudiant_dashboard');
-        Route::view('etudiant/rdv', 'admin.rdv')->name('admin_rdv');
+    Route::view('etudiant/dashboard', 'etudiant.dashboard')->name('etudiant_dashboard');
+
+
+    Route::middleware('auth:etudiants')->prefix('etudiant')->name('etudiant.')->group(function () {
+        
+        Route::view('etudiant/rdv', 'admin.rdv')->name('etudiant.rdv');
     });
 
 
     
-    Route::middleware('auth:psychos')->group(function () {
+    Route::middleware('auth:psychos')->prefix('psychologue')->name('psychologue.')->group(function () {
         Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
     });
 
