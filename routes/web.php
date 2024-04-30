@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PsychologueController;
 
 // use App\Http\Controllers\{AllController,EtudiantController};
 
@@ -19,13 +20,23 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
             Route::get('ajouter', 'create')->name('create');
             Route::post('enregistrer', 'store')->name('store');
         });
+
+        Route::controller(PsychologueController::class)->prefix('psychologues')->name('psychologues.')->group(function () {
+            Route::get('liste', 'index')->name('index');
+            Route::get('ajouter', 'create')->name('create');
+            Route::post('enregistrer', 'store')->name('store');
+        });
     });
+
+    
 
     Route::middleware('auth:etudiants')->group(function () {
         Route::view('etudiant/dashboard', 'etudiant.default')->name('etudiant_dashboard');
         Route::view('etudiant/rdv', 'admin.rdv')->name('admin_rdv');
     });
 
+
+    
     Route::middleware('auth:psychos')->group(function () {
         Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
     });

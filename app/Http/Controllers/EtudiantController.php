@@ -21,9 +21,7 @@ class EtudiantController extends Controller
         return view('admin.etudiants.create')->with(['etudiant' => new Etudiant()]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(EtudiantRequest $request): RedirectResponse
     {
         Etudiant::query()->create($request->except('_token'));

@@ -82,7 +82,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('admin_dashboard')}}" class="nav-link">Tableau de bord</a>
+            <a href="{{route('etudiant_dashboard')}}" class="nav-link">Tableau de bord</a>
           </li>
         </ul>
 
@@ -146,7 +146,7 @@
               <!-- Add icons to the links using the .nav-icon class
                   with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="{{route('admin_dashboard')}}" class="nav-link">
+                <a href="{{route('etudiant_dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Tableau de bord 
@@ -176,7 +176,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{route('admin_etudiant')}}" class="nav-link">
+                <a href="{{route('etudiant_dashboard')}}" class="nav-link">
                     <i class="nav-icon far fa-plus-square"></i>
                     <p>
                       Mes consultations 

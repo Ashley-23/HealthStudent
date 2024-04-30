@@ -57,12 +57,31 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('admin.psy') }}" class="nav-link">
-                            <i class="nav-icon far fa-plus-square"></i>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 Psychologues
+                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.psychologues.index') }}" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Liste des psychologues
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.psychologues.create') }}" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Ajouter un psychologue
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 @endif
 
