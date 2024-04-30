@@ -29,3 +29,11 @@
         {{ session()->pull('info') }}
     </div>
 @endif
+{{-- @dd($errors->all()) --}}
+@foreach ($errors->all() as $error)
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5><i class="icon fas fa-ban"></i> Oups!</h5>
+        {{ $error }}
+    </div>
+@endforeach

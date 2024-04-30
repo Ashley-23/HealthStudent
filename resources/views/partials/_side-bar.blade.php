@@ -83,6 +83,17 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                          <i class="nav-icon fas fa-th"></i>
+                          <p>
+                            Paramètres
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                          </p>
+                        </a>
+                    </li>
+
                 @endif
 
 
@@ -125,7 +136,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('etudiant.psychologues.index') }}" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
                                     <p>
                                         Liste des psychologues
@@ -207,6 +218,16 @@
                         <p>
                             Psychologues
                         </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                          <i class="nav-icon fas fa-th"></i>
+                          <p>
+                            Paramètres
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                          </p>
                         </a>
                     </li>
                 @endif

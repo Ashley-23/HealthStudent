@@ -33,7 +33,7 @@ class PsychologueController extends Controller
      */
     public function store(PsychologueRequest $request): RedirectResponse
     {
-        dd('jy suis');
+        // dd('jy suis', $request->except('_token'));
         Psychologue::query()->create($request->except('_token'));
         return to_route('admin.psychologues.index')->with(['success' => 'Psychologue ajouté.e avec succès']);
     }

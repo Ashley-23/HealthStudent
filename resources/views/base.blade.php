@@ -19,6 +19,7 @@
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
+                    @include('partials._messages')
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1> {{ $title ?? 'Blank title' }} </h1>
@@ -55,7 +56,6 @@
         </div>
 
         @include('partials._footer')
-        @include('partials._messages')
         <aside class="control-sidebar control-sidebar-dark">
         </aside>
     </div>

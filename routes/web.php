@@ -36,6 +36,12 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
     Route::middleware('auth:etudiants')->prefix('etudiant')->name('etudiant.')->group(function () {
         
         Route::view('etudiant/rdv', 'admin.rdv')->name('etudiant.rdv');
+
+        Route::controller(PsychologueController::class)->prefix('psychologues')->name('psychologues.')->group(function () {
+            Route::get('liste', 'index')->name('index');
+            Route::get('ajouter', 'create')->name('create');
+            Route::post('enregistrer', 'store')->name('store');
+        });
     });
 
 

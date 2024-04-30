@@ -28,7 +28,8 @@ class Psychologue extends Authenticatable
         'password',
         'num_psy',
         'annee_entree',
-        'slug'
+        'slug',
+        'ecole_id'
     ];
 
     protected function casts(): array
