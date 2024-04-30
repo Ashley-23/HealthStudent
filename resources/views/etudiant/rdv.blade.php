@@ -1,62 +1,8 @@
-@extends('admin.default')
+@extends('base', [
+    'title' => ' etudiant',
+])
 
 @section('content')
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
