@@ -37,6 +37,7 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
         
         Route::view('etudiant/rdv', 'admin.rdv')->name('etudiant.rdv');
         Route::view('etudiant/settings', 'etudiant.settings')->name('settings');
+        Route::view('etudiant/consultez-rendez-vous', 'etudiant.consultez_rdv')->name('consulter_rdv');
     });
 
 
