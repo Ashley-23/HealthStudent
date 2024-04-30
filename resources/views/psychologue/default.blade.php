@@ -55,7 +55,6 @@
   
     <div class="wrapper">
 
-      
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -64,7 +63,7 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('admin_dashboard')}}" class="nav-link">Tableau de bord</a>
+            <a href="{{route('psychologue_dashboard')}}" class="nav-link">Tableau de bord</a>
           </li>
         </ul>
 
@@ -77,10 +76,13 @@
             </a>
           </li>
 
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Deconnexion</a>
-          </li>
-        
+          <form action="{{ url('logout') }}" method="post" hidden id="logout-form">
+            @csrf
+          </form>
+
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="#" class="nav-link" onclick="document.getElementById('logout-form').submit()">Deconnexion</a>
+            </li>
         </ul>
       </nav>
       <!-- /.navbar -->
@@ -120,7 +122,7 @@
               <!-- Add icons to the links using the .nav-icon class
                   with font-awesome or any other icon font library -->
               <li class="nav-item">
-                <a href="{{route('admin_dashboard')}}" class="nav-link">
+                <a href="{{route('psychologue_dashboard')}}" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Tableau de bord 
@@ -130,7 +132,7 @@
               
             
               <li class="nav-item">
-                <a href="{{route('admin_edt')}}" class="nav-link">
+                {{-- <a href="{{route('admin_edt')}}" class="nav-link"> --}}
                   <i class="nav-icon far fa-calendar-alt"></i>
                   <p>
                     Emploi du temps
@@ -141,7 +143,7 @@
               
             
               <li class="nav-item">
-                <a href="{{route('admin_rdv')}}" class="nav-link">
+                {{-- <a href="{{route('admin_rdv')}}" class="nav-link"> --}}
                     <i class="nav-icon fas fa-edit"></i>
                     <p>
                         Rendez-vous
@@ -150,7 +152,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{route('admin_etudiant')}}" class="nav-link">
+                {{-- <a href="{{route('admin_etudiant')}}" class="nav-link"> --}}
                     <i class="nav-icon far fa-plus-square"></i>
                     <p>
                     Etudiants
@@ -160,7 +162,7 @@
               
 
               <li class="nav-item">
-                <a href="{{route('admin_psy')}}" class="nav-link">
+                {{-- <a href="{{route('admin_psy')}}" class="nav-link"> --}}
                     <i class="nav-icon far fa-plus-square"></i>
                     <p>
                     Psychologues

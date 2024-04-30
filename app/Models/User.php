@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function hasSlugBaseKeyProvider(): bool
+    {
+        return false;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'slug'
     ];
 
     /**

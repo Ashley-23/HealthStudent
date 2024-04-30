@@ -7,17 +7,24 @@ namespace App\Models;
 use App\Models\Admin;
 use App\Models\Etudiant;
 use App\Models\Psychologue;
+use App\Traits\Routing\{GenerateUniqueSlugTrait, ModelsSlugKeyTrait};
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ecole extends Model
 {
     use HasFactory;
+    use ModelsSlugKeyTrait, GenerateUniqueSlugTrait;
+
+    public function hasSlugBaseKeyProvider(): bool
+    {
+        return false;
+    }
 
     protected $primarykey = "id";
 
     protected $fillable = [
-        'nom',
+        'nom', 'slug'
     ];
 
     // Une école a plusieurs administrateur
