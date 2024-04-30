@@ -1,5 +1,7 @@
 
-@extends('admin.default')
+@extends('base', [
+  'title' => 'Tableau de bord'
+])
 
 @section('content')
     
