@@ -4,14 +4,20 @@ namespace App\Models;
 
 use App\Models\Etudiant;
 use App\Models\Psychologue;
+use App\Traits\Routing\GenerateUniqueSlugTrait;
+use App\Traits\Routing\ModelsSlugKeyTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class RendezVous extends Model
 {
     use HasFactory;
+    use ModelsSlugKeyTrait, GenerateUniqueSlugTrait;
 
-    protected $primaryKey= "id";
+    public function hasSlugBaseKeyProvider(): bool
+    {
+        return false;
+    }
 
     protected $fillable = [
         'date',
@@ -20,6 +26,7 @@ class RendezVous extends Model
         'heure_fin',
         'minute_fin',
         'commentaire',
+        'slug'
     ];
 
 
@@ -27,14 +34,13 @@ class RendezVous extends Model
     public function Psychologue()
     {
         //importation de la classe psychologue
-        return $this->belongsTo(Psychologue::Class);
+        return $this->belongsTo(Psychologue::class);
     }
 
     // un rendez-vous appartient à un etudiant 
     public function Etudiant()
     {
         //importation de la classe etudiant
-        return $this->belongsTo(Etudiant::Class);
+        return $this->belongsTo(Etudiant::class);
     }
-
 }

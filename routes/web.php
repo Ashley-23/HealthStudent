@@ -2,71 +2,68 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
+use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PsychologueController;
 
-Route::get('/', function () {
-    return view('welcome');
+// use App\Http\Controllers\{AllController,EtudiantController};
+
+Route::get('', fn () => to_route('login'));
+
+Route::middleware('auth:admins,etudiants,psychos')->group(function () {
+    Route::middleware('auth:admins')->prefix('admin')->name('admin.')->group(function () {
+        Route::view('dashboard', 'admin.dashboard')->name('dashboard');
+        Route::view('etudiant', 'admin.etudiant')->name('etudiant');
+        Route::view('psy', 'admin.psy')->name('psy');
+
+        Route::controller(EtudiantController::class)->prefix('etudiants')->name('etudiants.')->group(function () {
+            Route::get('liste', 'index')->name('index');
+            Route::get('ajouter', 'create')->name('create');
+            Route::post('enregistrer', 'store')->name('store');
+        });
+
+        Route::controller(PsychologueController::class)->prefix('psychologues')->name('psychologues.')->group(function () {
+            Route::get('liste', 'index')->name('index');
+            Route::get('ajouter', 'create')->name('create');
+            Route::post('enregistrer', 'store')->name('store');
+        });
+    });
+
+    
+
+    Route::middleware('auth:etudiants')->group(function () {
+        Route::view('etudiant/dashboard', 'etudiant.default')->name('etudiant_dashboard');
+        Route::view('etudiant/rdv', 'admin.rdv')->name('admin_rdv');
+    });
+
+
+    
+    Route::middleware('auth:psychos')->group(function () {
+        Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
+    });
+
+
+    // Route::view('admin/edt', 'admin.edt')->name('admin_edt');
+
+    Route::controller(AllController::class)->group(function () {
+        Route::post('connexion', 'connexion')->name('connexionCtl');
+    });
+
+
+    // Route::resource('EtudiantController', EtudiantController::class);
+    // Route::post('/admin/etudiant/ajout', 'EtudiantController@create')->name('ajout_etudiant');
+
+
+
+    // Route::controller(EtudiantController::class)->group(function () {
+    //     Route::post('/admin/ajout/etudiant', 'EtudiantController@create')->name('ajout_etudiant');
+    // });
+
+
+
+
+    //----------------------------------ETUDIANTS------------------------------------------
+    // Route::post('');
+
 });
 
-Route::get('/test', function () {
-    return view('etudiant.edt');
-});
-
-// *******************************ADMIIN******************************************
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-    
-})->name('admin_dashboard');
-
-
-Route::get('/admin/edt', function () {
-    return view('admin.edt');
-    
-})->name('admin_edt');
-
-
-Route::get('/admin/etudiant', function () {
-    return view('admin.etudiant');
-    
-})->name('admin_etudiant');
-
-
-Route::get('/admin/psy', function () {
-    return view('admin.psy');
-    
-})->name('admin_psy');
-
-
-Route::get('/admin/rdv', function () {
-    return view('admin.rdv');
-    
-})->name('admin_rdv');
-
-
-
-
-
-
-//--------------------------------------------------------------------------------------
-
-
-
-// Appel du controller 
-Route::resource('AllController', AllController::class);
-// pour afficher la page d'accueil 
-// Route::get('/accueil', 'AllController@connexion')->name('connexionCtl');
-Route::post('/accueil', 'AllController@connexion')->name('connexionCtl');
-// Pour gerer les accueils w
-// Route::get('/accueils', 'loginController@connexion')->name('loginController');
-
-
-
-
-
-// Route::get('/x', 'SuperAdminAffController@allclasse')->name('vue_superadmin_allclasse');
-
-
-
-
-
-
-
+require __DIR__ . '/auth.php';
