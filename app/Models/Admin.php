@@ -3,13 +3,21 @@
 namespace App\Models;
 
 use App\Models\Ecole;
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\Routing\GenerateUniqueSlugTrait;
+use App\Traits\Routing\ModelsSlugKeyTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Admin extends Model
+class Admin extends Authenticatable
 {
     use HasFactory;
-    protected $primaryKey = 'id';
+    use ModelsSlugKeyTrait, GenerateUniqueSlugTrait;
+
+    public function hasSlugBaseKeyProvider(): bool
+    {
+        return false;
+    }
+
     protected $fillable = [
         'nom',
         'prenom',
@@ -17,14 +25,21 @@ class Admin extends Model
         'email',
         'tel',
         'num_admin',
-        'annee_entree'
+        'annee_entree',
+        'password',
+        'slug'
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
 
     // Un administrateur est dans une école
     public function Ecole(){
         return $this->belongsTo(Ecole::class);
 
     }
-    
-
 }
