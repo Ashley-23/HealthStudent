@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="card-body pad table-responsive">
-        @if ($etudiants->isNotEmpty())
+        @if ($psychologues->isNotEmpty())
             <table class="table table-bordered text-center">
                 <tr>
                     <th>N°</th>
@@ -14,12 +14,12 @@
                     <th>Email </th>
                     <th></th>
                 </tr>
-                @foreach ($etudiants as $etudiant)
+                @foreach ($psychologues as $psychologue)
                     <tr>
-                        <td>{{ $psychologue->num_etu }}</td>
-                        <td>{{ $etudiant->nom }}</td>
-                        <td>{{ $etudiant->prenom }}</td>
-                        <td>{{ $etudiant->email }}</td>
+                        <td>{{ $psychologue->num_psy }}</td>
+                        <td>{{ $psychologue->nom }}</td>
+                        <td>{{ $psychologue->prenom }}</td>
+                        <td>{{ $psychologue->email }}</td>
                         <td></td>
                     </tr>
                 @endforeach
