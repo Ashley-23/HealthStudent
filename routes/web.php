@@ -43,7 +43,7 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
             Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
             Route::get('liste_psy', 'liste_psy')->name('liste_psy'); //liste des psy
             Route::get('prendre_rdv', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
-            // Route::get('parametre', 'settings')->name('settings'); //liste des psy
+            Route::get('parametre', 'settings')->name('settings'); //liste des psy
         });
         
         
