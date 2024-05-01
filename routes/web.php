@@ -58,6 +58,7 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
     Route::middleware('auth:psychos')->prefix('psychologue')->name('psychologue.')->group(function () {
                Route::controller(PsyVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
                        Route::get('liste_rdv', 'liste_rdv')->name('liste_rdv'); //liste des psy
+                       Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
                        Route::post('confirmer/{id}', 'confirm')->name('confirm');
                        Route::post('decliner/{id}', 'decline')->name('decline');
                    });
