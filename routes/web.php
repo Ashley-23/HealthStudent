@@ -42,7 +42,7 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
     });
 
 
-    Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
+    Route::view('psychologue/dashboard', 'psychologue.dashboard')->name('psychologue_dashboard');
     Route::middleware('auth:psychos')->prefix('psychologue')->name('psychologue.')->group(function () {
       
     });

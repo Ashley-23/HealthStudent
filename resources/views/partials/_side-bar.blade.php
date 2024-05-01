@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="avatar-initials bg-{{ Arr::random(['success', 'danger', 'info', 'warning', 'ligth']) }}">
+            <div class="avatar-initials bg-{{ Arr::random(['success', 'danger', 'info', 'warning']) }}"> {{--, 'ligth'--}}
                 {{ Str::limit($user->nom, 1, '') . Str::limit($user->prenom, 1, '') }}
             </div>
 
@@ -183,50 +183,59 @@
                     </li>
 
 
-                    <li class="nav-item">
-                        {{-- <a href="{{route('admin_edt')}}" class="nav-link"> --}}
+                    {{-- <li class="nav-item">
+                         <a href="{{route('admin_edt')}}" class="nav-link"> 
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Emploi du temps
                         </p>
                         </a>
-                    </li>
+                    </li> --}}
 
 
-                    <li class="nav-item">
-                        {{-- <a href="{{route('admin_rdv')}}" class="nav-link"> --}}
+                    {{-- <li class="nav-item">
+                        <a href="{{route('psychologue_dashboard')}}" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Rendez-vous
                         </p>
                         </a>
-                    </li>
+                    </li> --}}
 
                     <li class="nav-item">
-                        {{-- <a href="{{route('admin_etudiant')}}" class="nav-link"> --}}
-                        <i class="nav-icon far fa-plus-square"></i>
-                        <p>
-                            Etudiants
-                        </p>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-copy"></i>
+                            <p>
+                                Rendez-vous
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Liste des rendez-vous
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon far fa-plus-square"></i>
+                                    <p>
+                                        Consulter mes rendez-vous
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
 
-
-                    <li class="nav-item">
-                        {{-- <a href="{{route('admin_psy')}}" class="nav-link"> --}}
-                        <i class="nav-icon far fa-plus-square"></i>
-                        <p>
-                            Psychologues
-                        </p>
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
                             Paramètres
-                            {{-- <span class="right badge badge-danger">New</span> --}}
                           </p>
                         </a>
                     </li>
