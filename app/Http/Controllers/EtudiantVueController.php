@@ -22,10 +22,13 @@ class EtudiantVueController extends Controller
     public function liste_psy() : View
     {
         $psychologues = Psychologue::all();
+        // $rdv = RendezVous::all();
+        $rdv = RendezVous::with('psychologue')->get();
 
-        return view('etudiant.rdv.liste_psy', compact('psychologues'));
+        return view('etudiant.rdv.liste_psy', compact('psychologues', 'rdv'));
     }
 
+    
     public function prendre_rdv() : View
     {
         $psychologues = Psychologue::all();
