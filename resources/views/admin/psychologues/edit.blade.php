@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="mdp2"> Année d'entrée </label>
-                <input type="date" name="annee_entree" class="form-control" id="annee_entree" required value="{{ $psychologue->annee_entree }}">
+                <input type="c" name="annee_entree" class="form-control" id="annee_entree" required value="{{ $psychologue->annee_entree }}">
             </div>
 
             <!-- /.card-body -->

@@ -34,10 +34,15 @@ class EtudiantVueController extends Controller
 
     public function settings() : View
     {
-        $etudiants = Etudiant::all();
+        //$etudiant = Etudiant::findOrFail($id);
 
-        return view('etudiant.rdv.settings', compact('etudiants'));
+        // return view('etudiant.rdv.settings', compact('etudiant'));
+
+        return view('etudiant.rdv.settings')->with([
+            'etudiants' => Etudiant::query()->where('id', request()->user()->id)->get()
+        ]);
     }
+
 
 
 
