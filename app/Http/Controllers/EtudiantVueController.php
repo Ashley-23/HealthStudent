@@ -31,11 +31,11 @@ class EtudiantVueController extends Controller
         return view('etudiant.rdv.prendre_rdv', compact('psychologues'));
     }
 
-    public function parametre() : View
+    public function settings() : View
     {
         $psychologues = Psychologue::all();
 
-        return view('etudiant.settings', compact('psychologues'));
+        return view('etudiant.rdv.settings', compact('psychologues'));
     }
 
 
