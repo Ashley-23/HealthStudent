@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\Psychologue;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -33,9 +34,9 @@ class EtudiantVueController extends Controller
 
     public function settings() : View
     {
-        $psychologues = Psychologue::all();
+        $etudiants = Etudiant::all();
 
-        return view('etudiant.rdv.settings', compact('psychologues'));
+        return view('etudiant.rdv.settings', compact('etudiants'));
     }
 
 
