@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\EtudiantVueController;
 use App\Http\Controllers\PsychologueController;
 
 // use App\Http\Controllers\{AllController,EtudiantController};
@@ -37,8 +38,18 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
 
 
     Route::middleware('auth:etudiants')->prefix('etudiant')->name('etudiant.')->group(function () {
+
+        Route::controller(EtudiantVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
+            Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
+            Route::get('liste_psy', 'liste_psy')->name('liste_psy'); //liste des psy
+            Route::get('prendre_rdv', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
+            // Route::get('parametre', 'settings')->name('settings'); //liste des psy
+        });
         
-        Route::view('etudiant/rdv', 'admin.rdv')->name('etudiant.rdv');
+        
+        // Route::get('parametre', 'settings', 'EtudiantVueController@create')->name('ajout_etudiant');
+        // // Route::view('psychologue.index', 'psychologue.index')->name('psychologue.index');
+        // // Route::view('rdv', 'admin.rdv')->name('etudiant.rdv');
     });
 
 
