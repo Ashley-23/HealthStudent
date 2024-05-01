@@ -104,4 +104,8 @@ class EtudiantVueController extends Controller
     {
         //
     }
+
+
+    
 }
+
