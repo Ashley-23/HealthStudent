@@ -16,7 +16,11 @@ class EtudiantVueController extends Controller
     {
         $psychologues = Psychologue::all();
 
-        return view('etudiant.rdv.consulter_rdv', compact('psychologues'));
+        // return view('etudiant.rdv.consulter_rdv', compact('psychologues'));
+
+        return view('etudiant.rdv.consulter_rdv')->with([
+            'etudiants' => RendezVous::query()->where('id', request()->user()->id)->with('psychologue')->get()
+        ]);
     }
 
     public function liste_psy() : View
@@ -37,10 +41,6 @@ class EtudiantVueController extends Controller
 
     public function settings() : View
     {
-        //$etudiant = Etudiant::findOrFail($id);
-
-        // return view('etudiant.rdv.settings', compact('etudiant'));
-
         return view('etudiant.rdv.settings')->with([
             'etudiants' => Etudiant::query()->where('id', request()->user()->id)->get()
         ]);
