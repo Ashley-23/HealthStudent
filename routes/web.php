@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminVuController;
 use App\Http\Controllers\PsyVueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllController;
@@ -34,6 +35,11 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
             Route::post('editer/{id}', 'edit')->name('edit'); // affiche un psy 
             Route::post('supprimer/{id}', 'destroy')->name('destroy'); //supprime un psy
         });
+        Route::controller(AdminVuController::class)->prefix('settings')->name('settings.')->group(function () {
+            Route::get('editer/{id}', 'edit')->name('edit'); // affiche un psy 
+            Route::post('modifier/{id}', 'update')->name('update'); //modifie les infos d'un psy
+
+        });
     });
 
 
@@ -47,24 +53,28 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
             Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
             Route::get('liste_psy', 'liste_psy')->name('liste_psy'); //liste des psy
             Route::get('prendre_rdv', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
-            Route::get('parametre', 'settings')->name('settings'); //liste des psy
+            // Route::post('parametre/{id}', 'settings')->name('settings'); //liste des psy
+            Route::get('edit/{id}', 'settings')->name('settings'); //liste des psy
+            Route::post('update/{id}', 'update')->name('update'); //liste des psy
+            
         });
-
-
-        // Route::get('parametre', 'settings', 'EtudiantVueController@create')->name('ajout_etudiant');
-        // // Route::view('psychologue.index', 'psychologue.index')->name('psychologue.index');
-        // // Route::view('rdv', 'admin.rdv')->name('etudiant.rdv');
     });
 
 
     Route::view('psychologue/dashboard', 'psychologue.dashboard')->name('psychologue_dashboard');
     Route::middleware('auth:psychos')->prefix('psychologue')->name('psychologue.')->group(function () {
-               Route::controller(PsyVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
-                       Route::get('liste_rdv', 'liste_rdv')->name('liste_rdv'); //liste des psy
-                       Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
-                       Route::post('confirmer/{id}', 'confirm')->name('confirm');
-                       Route::post('decliner/{id}', 'decline')->name('decline');
-                   });
+        Route::controller(PsyVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
+            Route::get('liste_rdv', 'liste_rdv')->name('liste_rdv'); //liste des psy
+            Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
+            Route::post('confirmer/{id}', 'confirm')->name('confirm');
+            Route::post('decliner/{id}', 'decline')->name('decline');
+        });
+
+        Route::controller(PsyVueController::class)->prefix('settings')->name('settings.')->group(function () {
+            Route::get('editer/{id}', 'edit')->name('edit'); // affiche un psy 
+            Route::post('modifier/{id}', 'update')->name('update'); //modifie les infos d'un psy
+
+        });
     });
 
 

@@ -61,9 +61,6 @@ class PsychologueController extends Controller
         $psychologue = Psychologue::findOrFail($id);
 
         return view('admin.psychologues.edit', compact('psychologue'));
-        // return view('admin.psychologues.show')->with([
-        //     'psychologues' => Psychologue::query()->where('ecole_id', request()->user()->ecole_id)->get()
-        // ]);
     }
 
     /**
@@ -71,9 +68,6 @@ class PsychologueController extends Controller
      */
     public function update(PsychologueRequest $request, $id) :RedirectResponse
     {
-
-        // Psychologue::whereId($id)->update($validatedData);
-
         Psychologue::whereId($id)->update($request->except('_token'));
 
         return to_route('admin.psychologues.index')->with(['success' => 'Psychologue modifié.e avec succès']);

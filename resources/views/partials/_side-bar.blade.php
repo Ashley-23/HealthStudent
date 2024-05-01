@@ -85,7 +85,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.settings.edit',$user->id)  }}" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
                             Paramètres
@@ -155,11 +155,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('etudiant.rdv.settings') }}" class="nav-link">
+                        <a href="{{ route('etudiant.rdv.settings', $user->id) }}" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
                             Paramètres
-                            {{-- <span class="right badge badge-danger">New</span> --}}
                           </p>
                         </a>
                     </li>
@@ -232,7 +231,7 @@
 
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('psychologue.settings.edit',$user->id)  }}" class="nav-link">
                           <i class="nav-icon fas fa-th"></i>
                           <p>
                             Paramètres

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EtudiantRequest;
 use App\Models\Etudiant;
 use App\Models\Psychologue;
 use App\Models\RendezVous;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class EtudiantVueController extends Controller
@@ -39,12 +41,31 @@ class EtudiantVueController extends Controller
         return view('etudiant.rdv.prendre_rdv', compact('psychologues'));
     }
 
-    public function settings() : View
+    public function settings($id) : View
     {
-        return view('etudiant.rdv.settings')->with([
-            'etudiants' => Etudiant::query()->where('id', request()->user()->id)->get()
-        ]);
+        // return view('etudiant.rdv.settings')->with([
+        //     'etudiants' => Etudiant::query()->where('id', request()->user()->id)->get()
+        // ]);
+
+        $etudiant = Etudiant::findOrFail($id);
+        return view('etudiant.rdv.settings', compact('etudiant'));
     }
+
+    public function edit($id): View
+    {
+        $etudiant = Etudiant::findOrFail($id);
+        return view('etudiant.rdv.settings', compact('etudiant'));
+    }
+
+
+    public function update(Request $request) : RedirectResponse
+    {
+        dd('jy suis', $request);
+        Etudiant::whereId($request->id)->update($request->except('_token'));
+
+        return to_route('etudiant_dashboard')->with(['success' => 'Etudiant modifié.e avec succès']);
+    }
+
 
 
 
@@ -81,21 +102,7 @@ class EtudiantVueController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+   
 
     /**
      * Remove the specified resource from storage.
