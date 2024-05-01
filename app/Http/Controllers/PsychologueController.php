@@ -13,7 +13,7 @@ class PsychologueController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() : View
+    public function index(): View
     {
         return view('admin.psychologues.index')->with([
             'psychologues' => Psychologue::query()->where('ecole_id', request()->user()->ecole_id)->get()
@@ -38,35 +38,58 @@ class PsychologueController extends Controller
         return to_route('admin.psychologues.index')->with(['success' => 'Psychologue ajouté.e avec succès']);
     }
 
+
+    public function delete($id)
+    {
+        //
+    }
+
+
     /**
      * Display the specified resource.
      */
     public function show(Psychologue $psychologue)
     {
-        //
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Psychologue $psychologue)
+    public function edit($id)
     {
-        //
+        $psychologue = Psychologue::findOrFail($id);
+
+        return view('admin.psychologues.edit', compact('psychologue'));
+        // return view('admin.psychologues.show')->with([
+        //     'psychologues' => Psychologue::query()->where('ecole_id', request()->user()->ecole_id)->get()
+        // ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Psychologue $psychologue)
+    public function update(PsychologueRequest $request, $id) :RedirectResponse
     {
-        //
+
+        // Psychologue::whereId($id)->update($validatedData);
+
+        Psychologue::whereId($id)->update($request->except('_token'));
+
+        return to_route('admin.psychologues.index')->with(['success' => 'Psychologue modifié.e avec succès']);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Psychologue $psychologue)
+    // public function destroy(Psychologue $psychologue)
+    public function destroy($id)
     {
-        //
+
+        $psychologue = Psychologue::findOrFail($id);
+        $psychologue->delete();
+
+        // return redirect('/cars')->with('success', 'Voiture supprimer avec succèss');
+        return to_route('admin.psychologues.index')->with(['success' => 'Psychologue supprimé.e avec succès']);
     }
 }

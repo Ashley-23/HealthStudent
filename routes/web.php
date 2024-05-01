@@ -22,9 +22,12 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
         });
 
         Route::controller(PsychologueController::class)->prefix('psychologues')->name('psychologues.')->group(function () {
-            Route::get('liste', 'index')->name('index');
-            Route::get('ajouter', 'create')->name('create');
-            Route::post('enregistrer', 'store')->name('store');
+            Route::get('liste', 'index')->name('index'); //liste des psy
+            Route::get('ajouter', 'create')->name('create'); // afficher le formulaire de création
+            Route::post('enregistrer', 'store')->name('store'); //créer le psy
+            Route::post('editer/{id}', 'edit')->name('edit'); // affiche un psy
+            Route::post('modifier/{id}', 'update')->name('update'); //modifie les infos d'un psy
+            Route::post('supprimer/{id}', 'destroy')->name('destroy'); //supprime un psy
         });
     });
 
@@ -39,9 +42,9 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
     });
 
 
-    
+    Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
     Route::middleware('auth:psychos')->prefix('psychologue')->name('psychologue.')->group(function () {
-        Route::view('psychologue/dashboard', 'psychologue.default')->name('psychologue_dashboard');
+      
     });
 
 
