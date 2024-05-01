@@ -101,7 +101,7 @@
                 {{-- Étudiants --}}
                 @if (Auth::guard('etudiants')->user())
                     <!-- Left navbar links -->
-                    
+
                         {{-- <li class="nav-item d-none d-sm-inline-block">
                             <a href="{{ route('admin.dashboard') }}" class="nav-link">Tableau de bord</a>
                         </li> --}}
@@ -164,7 +164,7 @@
                         </a>
                     </li>
 
-                        
+
 
                 @endif
 
@@ -184,7 +184,7 @@
 
 
                     {{-- <li class="nav-item">
-                         <a href="{{route('admin_edt')}}" class="nav-link"> 
+                         <a href="{{route('admin_edt')}}" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>
                             Emploi du temps
