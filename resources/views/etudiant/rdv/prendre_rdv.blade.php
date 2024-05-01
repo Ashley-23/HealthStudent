@@ -5,10 +5,12 @@
 @section('content')
 
     <div class="card-body">
-        <form action="prendre_rdv.blade.php" method="POST">
+        {{-- <form action="prendre_rdv.blade.php" method="POST"> --}}
+        <form action="#" method="POST">
             @method('post')
             @csrf
-            <div class="">
+
+            {{-- <div class="">
                 <label for="choix">Choisir mon psychologue :</label>
                 <select id="choix" name="choix" class="form-control" >
 
@@ -18,14 +20,21 @@
                     @endforeach
 
                 </select>
-            </div>
+            </div> --}}
+
             <div class="">
-                <label for="date">Choisir mon une date :</label>
-                <input type = "date" id="date" name="date" class="form-control" required>
+                <label for="nom"> Psychologue :</label>
+                <input type = "text" id="nom" name="nom" class="form-control" value="{{ $psy[0]->nom }}  {{ $psy[0]->prenom }}" disabled>
             </div>
+
+            <div class="">
+                <label for="date">Choisir la date :</label>
+                <input type = "date" id="date" name="date" class="form-control" required min="<?php echo date('Y-m-d'); ?>">
+            </div>
+
              <div class="">
 
-                 <label for="heure">Choisir mon une date :</label>
+                 <label for="heure">Choisir l'heure :</label>
                  <select id="choix" name="choix" class="form-control" >
 
                      @for($i = 9; $i < 16; $i++)

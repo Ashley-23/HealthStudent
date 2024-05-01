@@ -35,10 +35,13 @@ class EtudiantVueController extends Controller
     }
 
     
-    public function prendre_rdv() : View
+    public function prendre_rdv($id) : View
     {
         $psychologues = Psychologue::all();
-        return view('etudiant.rdv.prendre_rdv', compact('psychologues'));
+        $psy = Psychologue::all()->where('id', $id);
+        $rdv = RendezVous::all()->where('psychologue_id', $id);
+        // dd($psychologues, $rdv, $psy);
+        return view('etudiant.rdv.prendre_rdv', compact('psychologues', 'psy'));
     }
 
     public function settings($id) : View
@@ -60,8 +63,8 @@ class EtudiantVueController extends Controller
 
     public function update(Request $request) : RedirectResponse
     {
-        dd('jy suis', $request);
-        Etudiant::whereId($request->id)->update($request->except('_token'));
+        // dd('jy suis', $request);
+        Etudiant::whereId($request->id)->update($request->except('_token','_method'));
 
         return to_route('etudiant_dashboard')->with(['success' => 'Etudiant modifié.e avec succès']);
     }

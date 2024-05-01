@@ -5,8 +5,8 @@
 @section('content')
 
 <div class="card-body">
-        {{-- <form action="{{ route('etudiant.rdv.update', $etudiant->id) }}" method="POST"> --}}
-        <form action="#" method="POST">
+        <form action="{{ route('etudiant.rdv.update', $etudiant->id) }}" method="POST">
+        {{-- <form action="#" method="POST"> --}}
             @csrf
             @method('post')
 

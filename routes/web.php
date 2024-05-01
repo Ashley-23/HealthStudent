@@ -52,7 +52,7 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
         Route::controller(EtudiantVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
             Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
             Route::get('liste_psy', 'liste_psy')->name('liste_psy'); //liste des psy
-            Route::get('prendre_rdv', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
+            Route::get('prendre_rdv/{id}', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
             // Route::post('parametre/{id}', 'settings')->name('settings'); //liste des psy
             Route::get('edit/{id}', 'settings')->name('settings'); //liste des psy
             Route::post('update/{id}', 'update')->name('update'); //liste des psy

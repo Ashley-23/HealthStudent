@@ -128,21 +128,22 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('etudiant.rdv.prendre_rdv') }}" class="nav-link">
+                                <a href="{{ route('etudiant.rdv.liste_psy') }}" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
                                     <p>
                                         Prendre un rendez-vous
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
+                                {{ route('etudiant.rdv.prendre_rdv') }}
                                 <a href="{{ route('etudiant.rdv.liste_psy') }}" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
                                     <p>
                                         Liste des psychologues
                                     </p>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="{{ route('etudiant.rdv.consulter_rdv') }}" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
