@@ -212,7 +212,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('psychologue.rdv.liste_rdv') }}" class="nav-link">
                                     <i class="nav-icon far fa-plus-square"></i>
                                     <p>
                                         Liste des rendez-vous
