@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Psychologue;
+use App\Models\RendezVous;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class PsyVueController extends Controller
 {
@@ -12,7 +14,7 @@ class PsyVueController extends Controller
      * Display a listing of the resource.
      */
 
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -59,5 +61,24 @@ class PsyVueController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function liste_rdv() : View
+    {
+
+        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('active', 'f')->with('etudiant')->get();
+        return view('psychologue.rdv.liste_rdv', ['rendezVous' => $rendezVous]);
+    }
+
+    public function confirm($id)
+    {
+        RendezVous::whereId($id)->update(['active' => 't']);
+        return redirect()->route('psychologue.rdv.liste_rdv');
+    }
+
+    public function decline($id)
+    {
+        RendezVous::whereId($id)->update(['active' => 's']);
+        return redirect()->route('psychologue.rdv.liste_rdv');
     }
 }
