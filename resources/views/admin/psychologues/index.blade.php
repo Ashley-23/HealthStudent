@@ -53,7 +53,7 @@
                             <form action="{{ route('admin.psychologues.edit', $psychologue->id) }}"
                                 method="post">
                                 @csrf
-                                <button type="submit" class="btn btn-primary">Modifier</button>
+                                <button type="submit" class="btn btn-primary" style= "margin-bottom: 10px;" >Modifier</button>
                             </form>
                             {{-- <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Modifier</a> --}}
                             <button type="button" class="btn btn-danger" data-toggle="modal"
@@ -61,7 +61,7 @@
                                 Supprimer
                             </button>
 
-                        </td>
+                        </td> 
                     </tr>
                 @endforeach
             </table>
