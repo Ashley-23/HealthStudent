@@ -22,26 +22,13 @@ class EtudiantVueController extends Controller
     public function liste_psy() : View
     {
         $psychologues = Psychologue::all();
-<<<<<<< Updated upstream
 
         return view('etudiant.rdv.liste_psy', compact('psychologues'));
-=======
-        // $rdv = RendezVous::all();
-        $rdv = RendezVous::with('psychologue')->get();
-
-        return view('etudiant.rdv.liste_psy', compact('psychologues', 'rdv'));
->>>>>>> Stashed changes
     }
 
     public function prendre_rdv() : View
     {
-<<<<<<< Updated upstream
         $psychologues = Psychologue::all();
-=======
-        $psychologue = Psychologue::all();
-      
->>>>>>> Stashed changes
-
         return view('etudiant.rdv.prendre_rdv', compact('psychologues'));
     }
 

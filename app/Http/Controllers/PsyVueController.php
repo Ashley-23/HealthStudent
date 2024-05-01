@@ -63,6 +63,9 @@ class PsyVueController extends Controller
         //
     }
 
+    /**
+     *
+     */
     public function liste_rdv() : View
     {
 
@@ -81,4 +84,18 @@ class PsyVueController extends Controller
         RendezVous::whereId($id)->update(['active' => 's']);
         return redirect()->route('psychologue.rdv.liste_rdv');
     }
+
+
+
+
+    /**
+     *
+     */
+    public function consulter_rdv() : View
+    {
+
+        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('active', 't')->with('etudiant')->get();
+        return view('psychologue.rdv.consulter_rdv', ['rendezVous' => $rendezVous]);
+    }
+
 }
