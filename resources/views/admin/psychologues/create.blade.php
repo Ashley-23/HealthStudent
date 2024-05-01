@@ -44,9 +44,9 @@
 
             <!-- /.card-body -->
             <div class="card-footer">
-                <button class="btn btn-primary">Valider</button>
+                <button class="btn btn-success">Valider</button>
                 <!-- <button type="submit" onclick="validateForm()" class="btn btn-primary">Valider</button> -->
-                <button type="reset" class="btn btn-secondary">Annuler</button>
+                <button type="reset" class="btn btn-danger">Annuler</button>
             </div>
 
         </form>
