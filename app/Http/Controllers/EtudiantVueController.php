@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Psychologue;
+use App\Models\RendezVous;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -12,30 +13,31 @@ class EtudiantVueController extends Controller
 
     public function consulter_rdv() : View
     {
-        $psychologue = Psychologue::all();
+        $psychologues = Psychologue::all();
 
-        return view('etudiant.rdv.consulter_rdv', compact('psychologue'));
+        return view('etudiant.rdv.consulter_rdv', compact('psychologues'));
     }
 
     public function liste_psy() : View
     {
-        $psychologue = Psychologue::all();
+        $psychologues = Psychologue::all();
 
-        return view('etudiant.rdv.liste_psy', compact('psychologue'));
+        return view('etudiant.rdv.liste_psy', compact('psychologues'));
     }
 
     public function prendre_rdv() : View
     {
-        $psychologue = Psychologue::all();
+        $psychologues = Psychologue::all();
+        $rdv = RendezVous::all();
 
-        return view('etudiant.rdv.prendre_rdv', compact('psychologue'));
+        return view('etudiant.rdv.prendre_rdv', compact('psychologues','rdv'));
     }
 
     public function parametre() : View
     {
-        $psychologue = Psychologue::all();
+        $psychologues = Psychologue::all();
 
-        return view('etudiant.settings', compact('psychologue'));
+        return view('etudiant.settings', compact('psychologues'));
     }
 
 
