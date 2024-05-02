@@ -7,12 +7,14 @@ use App\Http\Controllers\AllController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\EtudiantVueController;
 use App\Http\Controllers\PsychologueController;
+use App\Http\Controllers\RendezVousController;
 
 // use App\Http\Controllers\{AllController,EtudiantController};
 
 Route::get('', fn () => to_route('login'));
 
 Route::middleware('auth:admins,etudiants,psychos')->group(function () {
+
     Route::middleware('auth:admins')->prefix('admin')->name('admin.')->group(function () {
         Route::view('dashboard', 'admin.dashboard')->name('dashboard');
         Route::view('etudiant', 'admin.etudiant')->name('etudiant');
@@ -52,11 +54,12 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
         Route::controller(EtudiantVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
             Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
             Route::get('liste_psy', 'liste_psy')->name('liste_psy'); //liste des psy
-            Route::get('prendre_rdv/{id}', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
+            Route::get('prendre_rdv/{psy}', 'prendre_rdv')->name('prendre_rdv'); //liste des psy
             // Route::post('parametre/{id}', 'settings')->name('settings'); //liste des psy
             Route::get('edit/{id}', 'settings')->name('settings'); //liste des psy
             Route::post('update/{id}', 'update')->name('update'); //liste des psy
-            
+
+            Route::post('get-available-hours', 'getAvailableHours')->name('get-available-hours'); //recuperer les heures 
         });
     });
 
@@ -66,8 +69,8 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
         Route::controller(PsyVueController::class)->prefix('rdv')->name('rdv.')->group(function () {
             Route::get('liste_rdv', 'liste_rdv')->name('liste_rdv'); //liste des psy
             Route::get('consulter_rdv', 'consulter_rdv')->name('consulter_rdv'); //liste des psy
-            Route::post('confirmer/{id}', 'confirm')->name('confirm');
-            Route::post('decliner/{id}', 'decline')->name('decline');
+            Route::post('confirmer/{rdv}', 'confirm')->name('confirm');
+            Route::post('decliner/{rdv}', 'decline')->name('decline');
         });
 
         Route::controller(PsyVueController::class)->prefix('settings')->name('settings.')->group(function () {
@@ -99,6 +102,9 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
 
     //----------------------------------ETUDIANTS------------------------------------------
     // Route::post('');
+    Route::controller(RendezVousController::class)->prefix('rendez-vous')->name('rdvs.')->group(function() {
+        Route::post('enregistrer', 'store')->name('store');
+    });
 
 });
 

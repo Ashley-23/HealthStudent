@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\RendezVousStatusEnum;
 use App\Models\Etudiant;
 use App\Models\Psychologue;
 use App\Traits\Routing\GenerateUniqueSlugTrait;
@@ -22,12 +23,21 @@ class RendezVous extends Model
     protected $fillable = [
         'date',
         'heure_debut',
-        'minute_debut',
         'heure_fin',
-        'minute_fin',
-        'commentaire',
-        'slug'
+        'comentaire',
+        'active',
+        'slug',
+        'psychologue_id',
+        'etudiant_id',
+        'status'
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'status' => RendezVousStatusEnum::class
+        ];
+    }
 
 
     // un rendez-vous appartient à  un psychologue 

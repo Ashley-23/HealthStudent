@@ -2,40 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RendezVousStatusEnum;
 use App\Models\Psychologue;
 use App\Models\RendezVous;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 
 class PsyVueController extends Controller
 {
-  
 
-    public function liste_rdv() : View
+
+    public function liste_rdv(): View
     {
 
-        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('active', 'f')->with('etudiant')->get();
+        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('status', RendezVousStatusEnum::SOUMIS->value)->with('etudiant')->get();
         return view('psychologue.rdv.liste_rdv', ['rendezVous' => $rendezVous]);
     }
 
-    public function confirm($id)
+    public function confirm(RendezVous $rdv)
     {
-        RendezVous::whereId($id)->update(['active' => 't']);
+        $rdv->update(['status' => RendezVousStatusEnum::VALIDE->value]);
         return redirect()->route('psychologue.rdv.liste_rdv');
     }
 
-    public function decline($id)
+    public function decline(RendezVous $rdv)
     {
-        RendezVous::whereId($id)->update(['active' => 's']);
-        return redirect()->route('psychologue.rdv.liste_rdv');
+        $rdv->delete();
+        return to_route('psychologue.rdv.liste_rdv')->with(['success' => 'Rendez-vous supprimé avec succès']);
     }
 
-
-    public function consulter_rdv() : View
+    public function consulter_rdv(): View
     {
-
-        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('active', 't')->with('etudiant')->get();
+        $rendezVous = RendezVous::where('psychologue_id', request()->user()->id)->where('status', RendezVousStatusEnum::VALIDE->value)->with('etudiant')->get();
         return view('psychologue.rdv.consulter_rdv', ['rendezVous' => $rendezVous]);
     }
 
@@ -54,5 +52,4 @@ class PsyVueController extends Controller
 
         return to_route('psychologue_dashboard')->with(['success' => 'Psychologue modifié.e avec succès']);
     }
-
 }

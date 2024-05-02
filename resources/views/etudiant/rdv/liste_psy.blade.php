@@ -22,7 +22,7 @@
                         <td>
 
 
-                            <a href="{{ route('etudiant.rdv.prendre_rdv', $psychologues->id) }}" class="btn btn-primary">Prendre un rendez-vous</a>
+                            <a href="{{ route('etudiant.rdv.prendre_rdv', $psychologues) }}" class="btn btn-primary">Prendre un rendez-vous</a>
                         </td>
                      </tr>
               

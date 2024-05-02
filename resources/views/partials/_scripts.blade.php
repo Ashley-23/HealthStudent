@@ -33,7 +33,6 @@
    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
    <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
 
-
    <!-- DataTables  & Plugins -->
    <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
    <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -238,8 +237,6 @@
        });
    </script>
 
-
-
    <!-- ****************************************** calendrier ******************************** -->
 
    <script src="{{ asset('plugins/fullcalendar/main.js') }}"></script>
@@ -414,3 +411,5 @@
            })
        })
    </script>
+
+   @yield('scripts')
