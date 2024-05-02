@@ -88,22 +88,14 @@ Route::middleware('auth:admins,etudiants,psychos')->group(function () {
     });
 
 
-    // Route::resource('EtudiantController', EtudiantController::class);
-    // Route::post('/admin/etudiant/ajout', 'EtudiantController@create')->name('ajout_etudiant');
 
-
-
-    // Route::controller(EtudiantController::class)->group(function () {
-    //     Route::post('/admin/ajout/etudiant', 'EtudiantController@create')->name('ajout_etudiant');
-    // });
-
-
-
-
-    //----------------------------------ETUDIANTS------------------------------------------
-    // Route::post('');
     Route::controller(RendezVousController::class)->prefix('rendez-vous')->name('rdvs.')->group(function() {
         Route::post('enregistrer', 'store')->name('store');
+        // Route::post('enregistrer', 'store')->name('store');
+        // Route::post('enregistrer', 'store')->name('store');
+
+        Route::get('edit/{rdv}', 'edit')->name('edit'); //liste des rdv
+        Route::post('update/{rdv}', 'update')->name('update'); //modifier un rdv
     });
 
 });

@@ -11,7 +11,6 @@
                     <th>N°</th>
                     <th>Etudiant</th>
                     <th>Heure</th>
-                    <th>Commentaire </th>
                     <th></th>
                 </tr>
                 @foreach ($rendezVous as $key => $rdv)
@@ -19,7 +18,6 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $rdv->etudiant->nom }}&emsp;{{ $rdv->etudiant->prenom }}</td>
                         <td>{{ $rdv->heure_debut }}H - {{ $rdv->heure_fin }}H</td>
-                        <td>{{ $rdv->commentaire }}</td>
                         <td>
 
                             <div class="modal fade" id="modal-danger{{ $rdv->id }}">

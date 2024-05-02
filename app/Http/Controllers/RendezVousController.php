@@ -45,17 +45,34 @@ class RendezVousController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    // public function edit(string $id)
+    // {
+    //     //
+    // }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    // public function update(Request $request, string $id)
+    // {
+    //     //
+    // }
+
+    public function edit($id)
     {
-        //
+        $rdv = RendezVous::findOrFail($id);
+
+        return view('psychologue.rdv.edit', compact('rdv'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request) :RedirectResponse
     {
-        //
+        RendezVous::whereId($request->id)->update($request->except('_token'));
+
+        return to_route('psychologue.rdv.consulter_rdv')->with(['success' => 'Rendez-vous modifié.e avec succès']);
     }
 
     /**
