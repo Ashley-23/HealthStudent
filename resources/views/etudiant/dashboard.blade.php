@@ -1,5 +1,5 @@
 @extends('base', [
-    'title' => ' psychologues',
+    'title' => ' Etudiant',
 ])
 
 @section('content')

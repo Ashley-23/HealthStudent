@@ -8,7 +8,8 @@
         @if ($psychologues->isNotEmpty())
             <table class="table table-bordered text-center">
                 <tr>
-                    <th class="bg-primary text-white">psychologue</th>
+                    <th class="bg-primary text-white">Psychologue</th>
+                    <th class="bg-primary text-white">Ecole</th>
                     <th class="bg-primary text-white"></th>
                 </tr>
                 
@@ -19,6 +20,7 @@
                      <tr>
                         {{-- <td>{{ $mrdv->date }}</td> --}}
                         <td>{{ $psychologues->nom }}  {{$psychologues->prenom }}</td> 
+                        <td> {{$psychologues->ecole->nom }}</td> 
                         <td>
 
 

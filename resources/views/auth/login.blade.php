@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-23" data-validate="Veuillez remplir ce champ">
-                        <span class="label-input100">Numéro</span>
+                        <span class="label-input100">Email</span>
                         <input class="input100" type="email" name="email" value="{{ old('email') }}"
                             placeholder=" Entrez votre Email " required>
                         <span class="focus-input100" data-symbol="&#xf206;"></span>

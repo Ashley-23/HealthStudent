@@ -50,7 +50,7 @@
                     <p id="commentaire"></p>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-outline-light"
+                    <button type="button" class="btn btn-primary"
                         data-dismiss="modal">Fermer</button>
 
                 </div>
