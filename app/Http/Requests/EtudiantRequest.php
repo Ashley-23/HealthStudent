@@ -16,7 +16,6 @@ class EtudiantRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' =>['required'],
             'nom' => ['required', 'min:3'], // Assurez-vous que le statut est requis
             'prenom' => ['required', 'min:3'], // Assurez-vous que le nom d'utilisateur est requis
             'dateNaiss' => ['required'], // Assurez-vous que le mot de passe est requis
