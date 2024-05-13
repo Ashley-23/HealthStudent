@@ -14,9 +14,9 @@
                     <th>Email </th>
                     <th></th>
                 </tr>
-                @foreach ($psychologues as $psychologue)
+                @foreach ($psychologues as $key=>$psychologue)
                     <tr>
-                        <td>{{ $psychologue->num_psy }}</td>
+                        <td>{{ $key+1}}</td>
                         <td>{{ $psychologue->nom }}</td>
                         <td>{{ $psychologue->prenom }}</td>
                         <td>{{ $psychologue->email }}</td>

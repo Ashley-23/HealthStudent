@@ -16,9 +16,9 @@
                     <th>Email</th>
                     <th>Action</th>
                 </tr>
-                @foreach ($etudiants as $etudiant)
+                @foreach ($etudiants as $key=>$etudiant)
                     <tr>
-                        <td>{{ $etudiant->num_etu }}</td>
+                        <td>{{ $key+1 }}</td>
                         <td>{{ $etudiant->nom }}</td>
                         <td>{{ $etudiant->prenom }}</td>
                         <td>{{ $etudiant->email }}</td>
